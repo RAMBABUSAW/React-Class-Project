@@ -20,14 +20,27 @@
 // };
 // export default App;
 
-import Parent from "./Topic-4 map function/Parent";
+// import Parent from "./Topic-4 map function/Parent";
 
-const App = () => {
-  return (
-    <div className="app-component">
-      <Parent />
-    </div>
-  );
-};
+// const App = () => {
+//   return (
+//     <div className="app-component">
+//       <Parent />
+//     </div>
+//   );
+// };
 
-export default App;
+// export default App;
+
+// import Parent from "./Topic -4 Childern props/Parent";
+// const App = () => {
+//   return (
+//     <div className="app-component">
+//       <Parent />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
