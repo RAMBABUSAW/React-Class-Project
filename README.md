@@ -60,6 +60,7 @@ function App() {
 ```
 
 ## 7. What is Props?
+Props (short for Properties) are used to pass data from one component to another in React.
 
 Props (short for "properties") are a mechanism used to pass data from one component to another, typically in a unidirectional (top-down) flow from parent to child.
 
