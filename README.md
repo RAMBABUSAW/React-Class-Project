@@ -109,9 +109,10 @@ Component call Without passing props:
 - Communication:- The only way for a parent to talk to a child component
 
 ## 10. What is Children prop?
- 1. children prop is a special, built-in property that allows you to pass content between the opening and closing tags of a component.
- 2. Anything placed inside a component's tags is automatically passed to that component as props.children.
- 3. Children can be strings, numbers, JSX elements, arrays, or even functions.
+ 1.The children prop is a special built-in prop in React that allows you to pass content between the opening and closing tags of a component.
+ 2. children prop is a special, built-in property that allows you to pass content between the opening and closing tags of a component.
+ 3. Anything placed inside a component's tags is automatically passed to that component as props.children.
+ 4. Children can be strings, numbers, JSX elements, arrays, or even functions.
 
  #### Example
  ```
