@@ -194,7 +194,7 @@ Component call Without passing props:
 ```
 
 # 28/04/26
-
+## For Test -2 
 ## 13. What is syntheticEvent Event in React ?
 
 1- a syntheticEven in react is a cross-browser wrapper around the browser's native event object .
