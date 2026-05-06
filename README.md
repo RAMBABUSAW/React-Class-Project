@@ -292,3 +292,69 @@ const [state, setState] = useState(() => {
 // This function runs ONLY ONCE during initial render
 return expensiveComputation();
 });
+
+
+## 26. what is useEffect?
+The useEffect hook is a built-in React function that allows you to perform side effects in functional components.
+
+Side effects are operations that interact with systems outside of React's (like api call).
+
+1. No dependency array - runs after every render
+syntax
+useEffect(() => {
+  console.log("runs after every render");
+});
+2. Empty dependency array - runs once on mount
+syntax
+useEffect(() => {
+  console.log("runs once, like componentDidMount");
+}, []);
+3. With dependencies - runs when those values change
+syntax
+useEffect(() => {
+  console.log("runs when count or name changes");
+}, [count, name]);
+## 27. difference between useState and useEffect Hook?
+useState:
+Used to add and manage state (data) in functional components.
+Returns an array with 2 values: [currentState, setState].
+Updating state with setState() triggers a re-render of the component.
+Preserves value between re-renders.
+useEffect:
+Used to perform side effects (actions outside normal rendering).
+Runs after the component renders (and after paint in most cases).
+Common uses: data fetching, DOM manipulation, subscriptions, timers, event listeners.
+The useEffect hook itself does not return any value (it returns undefined).
+## 28. what is React lifecycle methods in Function Based Component?
+Every React component goes through 3 phases in its life:
+
+  MOUNT  →  UPDATE  →  UNMOUNT
+  (born)    (changes)   (dies)
+
+ ## Phase 1: MOUNTING
+- Component is created and inserted into the DOM for the first time.
+- On Mounting phase useEffect Runs only once after component is added to DOM.
+
+```
+  useEffect(() => {
+    console.log("runs once, like componentDidMount");
+  }, []);
+```
+## Phase 2: Updating
+Component re-renders due to state or prop changes.
+On Updating Phase useEffect runs when a specific value changes.
+  useEffect(() => {
+    console.log("runs when count or name changes");
+  }, [count, name]);
+## Phase 3: Unmounting
+Component is removed from the DOM.
+useEffect cleanup function will be called in this phase
+useEffect(() => {
+console.log("runs when count or name changes");
+
+
+return () => {
+      console.log("Cleanup function);  // This cleanup function will be called
+}
+}, []);
+

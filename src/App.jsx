@@ -43,19 +43,49 @@
 
 // export default App;
 
-
-
 // import Toggle from "./Topic-9 conditional Rendering-2/Toggle"
-import Counter from "./Topic-10 Lazy Initialization/Counter"
+// import Counter from "./Topic-10 Lazy Initialization/Counter"
 
-const App = () => {
-  
+// const App = () => {
+
+//   return (
+//     <div id="app">
+//         {/* <Toggle/> */}
+//       <Counter/>
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+
+
+
+
+
+
+// import Toggle from "./Topic -11 useEffect Hook/Toggle";
+
+// const App = () => {
+//   return (
+//     <div id="app">
+//       {/* <Toggle/> */}
+//       <Toggle />
+//     </div>
+//   );
+// };
+
+// export default App;
+
+
+import Shop from "./Topic -12 useEffect Realworld/Shop"
+const App=()=>{
   return (
     <div id="app">
-        {/* <Toggle/> */}
-      <Counter/>
+     <Shop/>
     </div>
-  );
+  )
 };
 
-export default App;
+export default Shop;
