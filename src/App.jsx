@@ -79,13 +79,33 @@
 // export default App;
 
 
-import Shop from "./Topic -12 useEffect Realworld/Shop"
-const App=()=>{
+// import Shop from "./Topic -12 useEffect Realworld/Shop"
+// const App=()=>{
+//   return (
+//     <div id="app">
+//      <Shop/>
+//     </div>
+//   )
+// };
+
+// export default Shop;
+
+
+import React from 'react'
+import Header from './Topic-14 React Routing/Header'
+import { Outlet } from 'react-router-dom'
+
+
+const App = () => {
   return (
     <div id="app">
-     <Shop/>
+      <Header/>
+
+      <Outlet />
     </div>
   )
-};
+}
 
-export default Shop;
+export default App
+
+
