@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
-import Card from "../components/Card";
-import {Link} from "react-router-dom"
+import Card from "../component/Card";
+
+import { Link } from "react-router-dom";
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -48,14 +49,14 @@ const Home = () => {
         {products.map((singleProduct) => {
           const { title, category, price, description, images } = singleProduct;
           return (
-            <Link  key={singleProduct.id} to={`products/${singleProduct.id}`}>
-              <Card               
+            <Link key={singleProduct.id} to={`products/${singleProduct.id}`}>
+              <Card
                 title={title}
                 category={category}
                 price={price}
                 description={description}
                 images={images}
-              />              
+              />
             </Link>
           );
         })}

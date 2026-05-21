@@ -54,10 +54,10 @@ const ProductPage = () => {
           </div>
         </div>
         <div className="right">
-          {/* <p className="category">{category}</p>
+          <p className="category">{category}</p>
           <div className="title">{title}</div>
           <div className="description">{customizeDescription}</div>
-          <div className="price">&#x24; {price}</div> */}
+          <div className="price">&#x24; {price}</div>
         </div>
       </div>
     </div>
