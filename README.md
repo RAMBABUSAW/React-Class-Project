@@ -419,3 +419,260 @@ const router = createBrowserRouter([
   },
 ]);
 
+
+
+
+
+
+
+# Test -3 
+
+# 39. What is useNavigate Hook?
+
+useNavigate is a hook that returns a navigate function used to navigate to different routes in your app.
+It replaces the old useHistory hook and allows navigation with options like replace, state, or delta
+Example
+    navigate('/dashboard', { replace: true })).
+
+# 40. How to create 404 not Found page?
+
+A 404 Not Found page is an error page that appears when a user tries to access a URL/route that doesn't exist on your website or application.
+
+const router = createBrowserRouter([
+  // Explicit 404 route
+  {
+    path: "*",
+    element: <NotFound />,
+  },
+]);
+
+# 41. What is Dynamic Routing?
+
+Dynamic Routing is a technique where routes are defined with dynamic segments (parameters) so that a single route can handle multiple URLs.
+Example
+      const router = createBrowserRouter([
+        { path: "/", element: <Home /> },
+        { path: "/notes/:id", element: <NoteDetail /> },   // Dynamic Route
+        { path: "*", element: <NotFound /> }
+      ]);
+
+# 42. What is useParams Hook?
+
+useParams is a React Router hook that lets you access dynamic values from the URL.
+If your route is /notes/:id, then useParams() gives you the id value.
+Syntax
+  const { id } = useParams();
+
+# 43. What is Navigate Component? Difference between Navigate vs useNavigate?
+
+Navigate is a React Router component used to redirect users to another route declaratively when it is rendered.
+
+Navigate Componentuse
+It is a React component used for declarative redirection.
+It is mainly used for automatic redirects
+useNavigate Hook
+It is a React hook that returns a function to navigate programmatically.
+It is used inside event handlers like button clicks, form submissions, or after async operations.
+# 44. What is useSearchParams Hook?
+
+useSearchParams is a React Router hook used to read and update the query parameters (search params) in the URL.
+It returns an array with the current search params object and a function to update.
+Example
+import { useSearchParams } from 'react-router-dom';
+
+function Component() {
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  // Read
+  const page = searchParams.get('page');
+  const filter = searchParams.get('filter');
+
+  // Update
+  const handleFilter = () => {
+    setSearchParams({ filter: 'active', page: 1 });
+  };
+
+  return <div>...</div>;
+}
+
+# 45. Difference between useParams and useSearchParams?
+
+useParams Hook:
+It is used to access dynamic route parameters defined in the URL path.
+Works with routes like /users/:id or /notes/:noteId.
+Returns a simple object (e.g., { id: "45" }).
+Mainly used for unique page identification.
+useSearchParams Hook:
+It is used to read and modify query parameters (search params) in the URL.
+Works with URLs like /notes?search=react&page=2.
+Returns an array [searchParams, setSearchParams].
+Mainly used for filtering, searching, sorting, and pagination.
+
+# 46. What is useRouteError Hook?
+
+useRouteError is a React Router hook that returns the error thrown while rendering, loading, or navigating to a route.
+It is used only inside an errorElement to display error messages to the user.
+syntax
+import { useRouteError } from 'react-router-dom';
+
+function ErrorPage() {
+  const error = useRouteError();
+
+  return (
+    <div>
+      <h1>Oops! Something went wrong</h1>
+      <p>{error.status} - {error.statusText}</p>
+      <p>{error.data || error.message}</p>
+    </div>
+  );
+}
+
+# 47. What is useLoaderData Hook?
+
+useLoaderData is a React Router hook that allows you to access the data returned by the loader function of the current route.
+It is used for data fetching before a component renders (great for SEO and performance).
+syntax
+import { useLoaderData } from 'react-router-dom';
+
+function NoteDetail() {
+  const note = useLoaderData();     // Get data from loader
+
+  return (
+    <div>
+      <h1>{note.title}</h1>
+      <p>{note.body}</p>
+    </div>
+  );
+}
+
+# 48. What is useOutletContext Hook?
+
+useOutletContext is a React Router hook that allows nested child routes to access data/context passed from their parent route.
+It helps in sharing data between parent and child components without using prop drilling.
+syntax
+ // Child Component
+import { useOutletContext } from 'react-router-dom';
+
+function ChildPage() {
+  const context = useOutletContext();   // Get data from parent
+
+  return <h1>{context.userName}</h1>;
+}
+
+// Parent Route
+function Layout() {
+  const user = { userName: "Chombu", role: "admin" };
+
+  return <Outlet context={user} />;   // Passing data
+}
+# 49. What is Public Route?
+
+A Public Route is a route that can be accessed by anyone, whether the user is logged in or not.
+
+# 50. What is Protected Route?
+
+A Protected Route is a route that can only be accessed by authenticated users (logged-in users).
+
+# 51. What is CORS?
+
+CORS stands for Cross-Origin Resource Sharing.
+It is a security mechanism implemented by web browsers that allows or restricts web pages from making requests to a different domain
+Without proper CORS policy on the backend, the browser will block the request and show an error.
+# 52. What is CORS Policy?
+
+CORS Policy is a set of rules defined by the server that tells the browser whether it should allow or block a cross-origin request. -It is sent by the server in the form of special HTTP headers (like Access-Control-Allow-Origin).
+# 53. Why Does CORS Exist?
+
+Browsers follow the Same-Origin Policy (security feature) by default, which blocks requests from one domain to another to prevent malicious websites from accessing sensitive data.
+CORS is the controlled way to relax that restriction.
+# 54. How to fix CORS?
+
+Step-1: Install cors package
+ npm install cors
+Step-2: Use cors in backend
+import cors from "cors";
+
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://localhost:5173'],   // your frontend URLs
+  credentials: true,                                            // if using cookies/auth
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],         // Allowed Methods
+  allowedHeaders: ['Content-Type', 'Authorization']             // Allowed headers
+}));
+
+# 55. What is useActionData Hook?
+
+useActionData is a React Router hook that returns the data returned by the most recently executed action function of the current route.
+
+// Action function (returns data instead of redirecting)
+export const handleSignup = async ({ request }) => {
+    const form = await request.formData();
+    const user = {
+        email: form.get("email"),
+        password: form.get("password")
+    };
+
+    const response = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(user)
+    });
+
+    if (!response.ok) {
+        const err = await response.json();
+        return { error: err.message }; // returned, not thrown
+    }
+
+    return redirect("/dashboard");
+};
+// Component consuming action data
+import { useActionData } from "react-router-dom";
+
+const Signup = () => {
+    const data = useActionData();
+
+    return (
+        <Form method="post">
+            <input name="email" type="email" />
+            <input name="password" type="password" />
+            {data?.error && <p>{data.error}</p>}
+            <button type="submit">Register</button>
+        </Form>
+    );
+};
+# 56. Difference between useState and useRef ?
+
+1. Purpose:
+
+useState: Used to manage state that affects the UI (reactive state).
+useRef: Used to store mutable values that persist across renders.
+
+2. Re-rendering:
+
+useState: Updating state causes the component to re-render.
+useRef: Updating ref.current does not cause re-render.
+
+3. Syntax:
+useState: const [value, setValue] = useState(initialValue)
+useRef: const ref = useRef(initialValue)
+
+4. Access & Update:
+useState: Update using setValue(newValue)
+useRef: Update directly ref.current = newValue
+
+5. Use Cases:
+useState: Form inputs, counters, toggles, fetched data, UI-dependent values.
+useRef: DOM references (focus, scroll), previous value tracking, timers, mutable flags.
+
+5. Performance:
+useState: Can be expensive due to re-renders on every update.
+useRef: Lightweight, no re-renders.
+
+6. When to Use:
+Use useState when you want the UI to update when value changes.
+Use useRef when you just need to "remember" a value without UI update.
+# 57. Difference between Controlled Form and Uncontrolled Form?
+
+Controlled: React controls the form using state + value + onChange. Controlled needs more code but gives better control & validation.
+
+Uncontrolled: DOM controls the form (using defaultValue or ref). Uncontrolled is simpler and faster but harder to validate.
+
